@@ -1,0 +1,381 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>文章详情 · 牡丹鹦鹉经验分享</title>
+    <!-- 复用你网站的字体和样式 -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <style>
+        /* 沿用你主页的一些卡片样式 */
+        .article-container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 100px 1.5rem 4rem; /* 顶部避开 fixed header */
+        }
+
+        .article-header {
+            margin-bottom: 2rem;
+        }
+
+            .article-header h1 {
+                font-size: 2.2rem;
+                font-weight: 700;
+                color: #3e2c1c;
+                margin-bottom: 0.5rem;
+            }
+
+        .article-meta {
+            color: #8a7a6a;
+            font-size: 0.95rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+            .article-meta .tags {
+                display: flex;
+                gap: 0.4rem;
+            }
+
+            .article-meta .tag {
+                display: inline-block;
+                padding: 0.15rem 0.9rem;
+                border-radius: 30px;
+                font-size: 0.7rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                border: 1px solid rgba(0,0,0,0.04);
+            }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #2d241a;
+        }
+
+            .article-body p {
+                margin-bottom: 1.2rem;
+            }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2.5rem;
+            color: #b1744b;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+            .back-link:hover {
+                color: #7b4a2c;
+                text-decoration: underline;
+            }
+        /* 复用你已有的标签颜色 */
+        .tag-health {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .tag-food {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .tag-environment {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .tag-behavior {
+            background: #e8daef;
+            color: #4a235a;
+        }
+
+        .tag-breeding {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .tag-other {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+
+        .no-article {
+            text-align: center;
+            padding: 4rem 1rem;
+            color: #8a7a6a;
+        }
+
+            .no-article i {
+                font-size: 3rem;
+                display: block;
+                margin-bottom: 1rem;
+            }
+    </style>
+</head>
+<body>
+
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center">
+            <a href="index.html" class="logo d-flex align-items-center me-auto">
+                <h1 class="sitename">牡丹鹦鹉.com</h1>
+            </a>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="index.html#hero">首页</a></li>
+                    <li><a href="index.html#about">关于我们</a></li>
+                    <li><a href="index.html#experiences">经验分享</a></li>
+                    <li><a href="index.html#portfolio">图库</a></li>
+                    <li><a href="index.html#team">鸟宝们</a></li>
+                    <li><a href="index.html#contact">联系我们</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container article-container">
+            <!-- 文章内容由 JavaScript 动态渲染 -->
+            <div id="articleContent">
+                <div class="no-article">
+                    <i class="bi bi-file-earmark-x"></i>
+                    <p>文章加载中……</p>
+                </div>
+            </div>
+            <a href="index.html#experiences" class="back-link"><i class="bi bi-arrow-left"></i> 返回经验分享</a>
+        </div>
+    </main>
+
+    <!-- 页脚（与主页保持一致） -->
+    <footer id="footer" class="footer">
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <a href="index.html" class="d-flex align-items-center"><span class="sitename">牡丹鹦鹉.com</span></a>
+                    <div class="footer-contact pt-3">
+                        <p>No 20, Jalan Harmonium 23/7,</p>
+                        <p>Taman Desa Tebrau, 81100 JB, Johor</p>
+                        <p class="mt-3"><strong>Phone:</strong> <span>+60 12 7928602</span></p>
+                        <p><strong>Email:</strong> <span>linyse2001@gmail.com</span></p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>网站链接</h4>
+                    <ul>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#hero">首页</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#about">关于我们</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#experiences">经验分享</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#portfolio">图库</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h4>关注我们</h4>
+                    <p>您可以在以下的社交网站关注我们</p>
+                    <div class="social-links d-flex">
+                        <a href=""><i class="bi bi-twitter-x"></i></a>
+                        <a href=""><i class="bi bi-facebook"></i></a>
+                        <a href=""><i class="bi bi-instagram"></i></a>
+                        <a href=""><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright text-center mt-4">
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">Ken­­©</strong> <span>All Rights Reserved</span></p>
+        </div>
+    </footer>
+
+    <!-- 依赖的 JS 库（与主页一致） -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+    (function() {
+        // ========== 文章数据仓库 ==========
+        // 与 index.html 中的卡片一一对应，id 从 1 开始
+        const articles = {
+            1: {
+                title: '如何保持鸟舍通风与干燥',
+                tags: ['health', 'environment'],
+                tagLabels: ['❤️ 健康', '🌿 环境'],
+                date: '2025-12-10',
+                content: `
+                    <p>潮湿环境是牡丹鹦鹉健康的大敌。霉菌和细菌在湿度过高时极易滋生，导致鸟宝们患上呼吸道疾病或真菌感染。经过几年的摸索，我总结出一套行之有效的通风干燥方案。</p>
+                    <p>每天早晨和傍晚，我会打开窗户通风至少 2 小时。如果天气不好（比如雨季），我会开启风扇辅助空气循环，但注意不要让风直吹鸟笼。</p>
+                    <p>笼底垫材我选用吸湿性好的松木屑，厚度约 3 厘米。每周彻底更换一次，平时发现局部潮湿就及时清理。此外，我会在笼外放置一个温湿度计，确保相对湿度维持在 45%~60% 之间。</p>
+                    <p>遵循这些习惯后，我家鸟宝们再也没有出现过呼吸道问题，羽毛也越发蓬松亮丽。</p>
+                `
+            },
+            2: {
+                title: '自配混合谷物粮心得',
+                tags: ['food'],
+                tagLabels: ['🍎 食物'],
+                date: '2025-12-05',
+                content: `
+                    <p>市面上的成品鸟粮虽然方便，但为了让鸟宝们吃得更健康，我开始尝试自己调配谷物。经过多次调整，现在这个配方鸟宝们非常喜欢，而且身体状况明显改善。</p>
+                    <p>基本配比是：<strong>小米 : 加纳利子 : 燕麦 : 葵花籽 = 4 : 3 : 2 : 1</strong>。小米提供基础能量，加纳利子富含脂肪和蛋白质，燕麦增加膳食纤维，葵花籽作为零食奖励（不可过多）。</p>
+                    <p>除此之外，我还会每月添加一次少量墨鱼骨粉（约 5g 每公斤谷物），补充钙质。换羽期会额外添加一些蛋黄粉。</p>
+                    <p>自配粮的好处是可以根据季节和鸟的状态灵活调整，比如夏季减少葵花籽，冬季适当增加燕麦。鸟宝们的羽毛变得更有光泽，精神头也更足。</p>
+                `
+            },
+            3: {
+                title: '鸟儿洗澡的学问',
+                tags: ['behavior', 'health'],
+                tagLabels: ['🐾 行为', '❤️ 健康'],
+                date: '2025-11-28',
+                content: `
+                    <p>牡丹鹦鹉非常喜欢洗澡，但这不只是为了好玩，更是保持皮肤和羽毛健康的重要环节。洗澡能清除羽毛上的灰尘、皮屑和寄生虫，还能缓解换羽期的瘙痒感。</p>
+                    <p>我一般每周提供 2~3 次洗澡机会。用一个浅盘（约 2~3 厘米深）装满温水，温度控制在 25~30℃。放在笼底或笼门口，鸟宝们会自己跳进去扑腾。</p>
+                    <p>有些胆小的鸟第一次不敢洗，我会用手指轻轻拨动水面，或者放一颗它们喜欢的玩具在水里，慢慢引导。洗完澡后要确保室温温暖，避免着凉。</p>
+                    <p>注意：不要用任何清洁剂，清水足矣。洗澡时间最好选择在阳光明媚的上午，让羽毛有足够时间自然晾干。</p>
+                `
+            },
+            4: {
+                title: '笼子摆放位置有讲究',
+                tags: ['environment'],
+                tagLabels: ['🌿 环境'],
+                date: '2025-11-20',
+                content: `
+                    <p>笼子的摆放位置直接影响鸟宝们的精神状态和安全感。我以前把笼子放在客厅中央，结果鸟儿总是很紧张，后来调整了位置，它们明显放松了许多。</p>
+                    <p>最佳位置是<strong>靠墙放置</strong>，高度大约与人的视线平齐或稍低。这样鸟宝们有一侧是安全的屏障，不会觉得四面受敌。同时，它们可以观察到家人的日常活动，满足社交需求。</p>
+                    <p>要避免直射阳光和穿堂风。窗户旁边虽然光线好，但夏季过热，冬季过冷，而且穿堂风容易让鸟儿感冒。我选在客厅的一个角落，距离窗户约 2 米，光线柔和，空气流通但不直吹。</p>
+                    <p>另外，笼子附近不要放置电视机或音响等噪音源，安静的环境能让鸟宝们更好地休息和鸣叫。</p>
+                `
+            },
+            5: {
+                title: '繁殖期营养补充要点',
+                tags: ['breeding', 'health'],
+                tagLabels: ['🥚 繁殖', '❤️ 健康'],
+                date: '2025-11-15',
+                content: `
+                    <p>繁殖期是鸟宝们最需要营养的阶段。母鸟产蛋消耗大量钙质和蛋白质，而雏鸟出壳后，亲鸟需要持续提供高能量食物来喂养幼崽。</p>
+                    <p>我的做法是：在预计产蛋前 2 周开始，每天给繁殖对提供<strong>煮熟的蛋黄</strong>（切碎）和墨鱼骨（挂笼内自由啄食）。主食里混入专门的繁殖粉，富含维生素和矿物质。</p>
+                    <p>雏鸟出壳后，我还会增加一些面包虫（干虫或活虫均可）作为蛋白质补充，但量要控制，避免亲鸟营养过剩。同时保证饮水清洁，每天更换。</p>
+                    <p>记得繁殖期间尽量减少打扰，尤其不要频繁开笼门，以免惊扰亲鸟。顺利的话，雏鸟会在 4~5 周后独立。</p>
+                `
+            },
+            6: {
+                title: '挑食小鸟的驯养技巧',
+                tags: ['behavior', 'food'],
+                tagLabels: ['🐾 行为', '🍎 食物'],
+                date: '2025-11-08',
+                content: `
+                    <p>我家 Kiwi 曾经是个“挑食大王”，只吃葵花籽，对其他谷物不屑一顾。长期单一饮食会导致营养不良，所以我决心纠正它的坏习惯。</p>
+                    <p>我采用“渐减法”：每天在食盆里混合葵花籽和小米，起初葵花籽占 70%，小米 30%。之后每天减少 5% 的葵花籽，同时增加小米比例。同时，我把葵花籽剥开放在最底层，让 Kiwi 不得不扒开小米才能吃到。</p>
+                    <p>大约两周后，葵花籽比例降到 10% 左右，Kiwi 已经习惯了小米的味道。现在它已经完全接受混合粮，而且身体更健康，体重也趋于正常。</p>
+                    <p>关键是耐心和循序渐进，千万不要突然断掉它喜欢的食物，否则会引发应激。</p>
+                `
+            },
+            7: {
+                title: '常见小病：拉稀的处理',
+                tags: ['health'],
+                tagLabels: ['❤️ 健康'],
+                date: '2025-11-01',
+                content: `
+                    <p>拉稀是牡丹鹦鹉最常见的症状之一，但大多数情况并不严重。关键要区分是细菌感染还是单纯饮食问题。</p>
+                    <p>如果鸟宝精神尚可，仍然活泼鸣叫，那多半是饮食引起的。比如吃了过多水分大的蔬果（黄瓜、西瓜等），或者喝了不干净的水。这时先停掉蔬果，只喂干小米，饮水中加入少量宠物专用的益生菌，一般 1~2 天就能恢复。</p>
+                    <p>但如果鸟宝精神萎靡、炸毛、不吃不喝，那就要警惕了。建议尽快就医，不要自己乱用药。平时注意保持笼具清洁，定期消毒饮水器，能大大减少拉稀的发生。</p>
+                    <p>我还养成一个习惯：每天观察便便的形状和颜色，一旦发现异常立即处理，防患于未然。</p>
+                `
+            },
+            8: {
+                title: '玩具摆放与互动频率',
+                tags: ['environment', 'behavior'],
+                tagLabels: ['🌿 环境', '🐾 行为'],
+                date: '2025-10-25',
+                content: `
+                    <p>牡丹鹦鹉聪明好动，如果笼内过于单调，它们容易产生行为问题，比如啄羽或尖叫。适当提供玩具和互动是维持心理健康的关键。</p>
+                    <p>我的经验是：笼内同时放置 3~4 种不同质地的玩具，比如木头啃咬块、绳索秋千、铃铛串和觅食玩具。每周轮换一次位置，保持新鲜感。玩具不宜过多，以免占据活动空间。</p>
+                    <p>除了玩具，每天至少与鸟宝进行 20 分钟的亲密互动。可以放它们出笼在安全区域玩耍，或者用手指轻轻挠它们的头部。互动时多说话，让它们熟悉你的声音。</p>
+                    <p>经过一段时间的坚持，鸟宝们变得非常亲人，而且白天在笼内也会自娱自乐，不再过度依赖主人的关注。</p>
+                `
+            }
+        };
+
+        // ========== 渲染函数 ==========
+        function renderArticle(id) {
+            const container = document.getElementById('articleContent');
+            const article = articles[id];
+            if (!article) {
+                container.innerHTML = `
+                    <div class="no-article">
+                        <i class="bi bi-file-earmark-excel"></i>
+                        <p>抱歉，找不到这篇文章（ID: ${id}）</p>
+                        <p><a href="index.html#experiences" class="back-link"><i class="bi bi-arrow-left"></i> 返回经验分享</a></p>
+                    </div>
+                `;
+                return;
+            }
+
+            // 构造标签 HTML
+            const tagHTML = article.tagLabels.map(label => {
+                const className = label.includes('健康') ? 'tag-health' :
+                                  label.includes('食物') ? 'tag-food' :
+                                  label.includes('环境') ? 'tag-environment' :
+                                  label.includes('行为') ? 'tag-behavior' :
+                                  label.includes('繁殖') ? 'tag-breeding' : 'tag-other';
+                return `<span class="tag ${className}">${label}</span>`;
+            }).join('');
+
+            const html = `
+                <div class="article-header">
+                    <h1>${article.title}</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-calendar3"></i> ${article.date}</span>
+                        <div class="tags">${tagHTML}</div>
+                    </div>
+                </div>
+                <div class="article-body">
+                    ${article.content}
+                </div>
+            `;
+            container.innerHTML = html;
+        }
+
+        // ========== 获取 URL 参数 ==========
+        function getParam(name) {
+            const params = new URLSearchParams(window.location.search);
+            return params.get(name);
+        }
+
+        // ========== 初始化 ==========
+        const id = getParam('id');
+        if (id) {
+            renderArticle(id);
+        } else {
+            // 如果没有 id，显示友好提示
+            document.getElementById('articleContent').innerHTML = `
+                <div class="no-article">
+                    <i class="bi bi-file-earmark-question"></i>
+                    <p>请选择一篇文章查看详情</p>
+                    <a href="index.html#experiences" class="back-link"><i class="bi bi-arrow-left"></i> 返回经验分享</a>
+                </div>
+            `;
+        }
+
+        // 初始化 AOS（如果需要）
+        if (typeof AOS !== 'undefined') {
+            AOS.init();
+        }
+    })();
+    </script>
+
+</body>
+</html>

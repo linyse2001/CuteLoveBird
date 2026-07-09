@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>牡丹鹦鹉 · 经验分享</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <style>
+        /* ===== 原有样式保留 ===== */
+        .member-info p {
+            display: block;
+            white-space: normal;
+        }
+
+        .bird-age {
+            display: inline !important;
+            white-space: nowrap;
+        }
+
+        .member-info p {
+            margin-bottom: 0.3rem;
+            line-height: 1.5;
+        }
+
+            .member-info p:last-child {
+                margin-bottom: 0;
+            }
+
+            .member-info p.bird-stat {
+                margin-bottom: 0.1rem;
+            }
+
+        .bird-stats {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+
+            .bird-stats li {
+                margin-bottom: 0.1rem;
+                line-height: 1.5;
+            }
+
+                .bird-stats li:has(.bird-age) {
+                    white-space: nowrap;
+                }
+
+        .bird-age {
+            display: inline;
+        }
+
+        .bird-title {
+            color: #b1744b;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== 3D Lovebird Cards ===== */
+        .bird-card .team-member {
+            background: #fffaec;
+            border-radius: 24px;
+            padding: 1.8rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 6px 12px rgba(0, 0, 0, 0.1), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+            border: 2px solid #ffd166;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .bird-card .team-member:hover {
+                transform: perspective(600px) translateY(-8px) rotateY(2deg);
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.12);
+            }
+
+        .bird-card .pic {
+            flex-shrink: 0;
+            width: 120px;
+            height: 120px;
+            border-radius: 50% !important;
+            overflow: hidden;
+            border: 4px solid white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-right: 1.2rem;
+            display: block;
+            background: #f0e6d3;
+        }
+
+            .bird-card .pic img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+        .bird-card:hover .pic {
+            transform: scale(1.05);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+        }
+
+        .team .team-member .pic {
+            flex-shrink: 0;
+            width: 120px;
+            height: 120px;
+            border-radius: 50% !important;
+            overflow: hidden;
+            border: 4px solid white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            margin-right: 1.2rem;
+            display: block;
+            background: #f0e6d3;
+        }
+
+            .team .team-member .pic img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+        .bird-card .member-info h4 {
+            color: #4a3728;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .bird-card .member-info span {
+            color: #b1744b;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+            .bird-card .member-info span::after {
+                display: none !important;
+                content: none !important;
+            }
+
+        .bird-stats li {
+            color: #3e2c1c;
+            line-height: 1.6;
+        }
+
+        .bird-card .social a {
+            font-size: 1.3rem;
+            color: #b1744b;
+            transition: color 0.2s;
+        }
+
+            .bird-card .social a:hover {
+                color: #7b4a2c;
+            }
+
+        /* ===== SVG stars ===== */
+        .bird-stars {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 1;
+            white-space: nowrap;
+            overflow: visible;
+            position: relative;
+            cursor: help;
+            height: 1.5rem;
+        }
+
+            .bird-stars svg {
+                display: inline-block;
+                height: 1.5rem;
+                width: auto;
+                vertical-align: middle;
+                overflow: visible;
+            }
+
+        .bird-stats li:has(.bird-stars) {
+            white-space: nowrap;
+        }
+
+            .bird-stats li:has(.bird-stars) .bird-stars {
+                display: inline-block;
+            }
+
+        .bird-stars .rating-tooltip {
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2d2d2d;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+            .bird-stars .rating-tooltip::after {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                border: 6px solid transparent;
+                border-top-color: #2d2d2d;
+            }
+
+        .bird-stars:hover .rating-tooltip {
+            opacity: 1;
+        }
+
+        .bird-stats li {
+            line-height: 1.6;
+        }
+
+            .bird-stats li:has(.bird-stars) {
+                line-height: 1.6;
+                display: flex;
+                align-items: center;
+            }
+
+                .bird-stats li:has(.bird-stars) .bird-stars {
+                    vertical-align: middle;
+                    height: 1.5rem;
+                }
+
+        /* ================================================================
+                   经验分享 – 对话气泡 (保留)
+                   ================================================================ */
+        #experiences .container {
+            position: relative;
+        }
+
+        .bubble-wrapper {
+            display: flex;
+            justify-content: center;
+            padding: 0 0 2.5rem 0;
+        }
+
+        .dialogue-bubble {
+            position: relative;
+            max-width: 780px;
+            width: 100%;
+            background: linear-gradient(145deg, #fffcf0 0%, #fdf6e3 100%);
+            padding: 2.2rem 2.8rem;
+            border-radius: 32px 32px 32px 8px;
+            box-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.25), 0 12px 24px -8px rgba(0, 0, 0, 0.15), 0 0 0 2px #ffd166 inset, 0 0 0 4px #fff8e7 inset;
+            transform: translateY(-6px);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #3e2c1c;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            animation: floatSoft 4s ease-in-out infinite;
+        }
+
+            .dialogue-bubble:hover {
+                transform: translateY(-12px);
+                animation-play-state: paused;
+                box-shadow: 0 40px 70px -14px rgba(0, 0, 0, 0.30), 0 18px 32px -10px rgba(0, 0, 0, 0.18), 0 0 0 2px #ffd166 inset, 0 0 0 4px #fff8e7 inset;
+            }
+
+            .dialogue-bubble::before {
+                content: '';
+                position: absolute;
+                bottom: -22px;
+                left: 48px;
+                width: 0;
+                height: 0;
+                border-left: 18px solid transparent;
+                border-right: 18px solid transparent;
+                border-top: 24px solid #ffd166;
+                filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.08));
+            }
+
+            .dialogue-bubble::after {
+                content: '';
+                position: absolute;
+                bottom: -18px;
+                left: 52px;
+                width: 0;
+                height: 0;
+                border-left: 14px solid transparent;
+                border-right: 14px solid transparent;
+                border-top: 20px solid #fdf6e3;
+            }
+
+        .bubble-icon {
+            display: inline-block;
+            font-size: 1.8rem;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+            line-height: 1;
+        }
+
+        .bubble-label {
+            display: inline-block;
+            background: #b1744b;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            margin-bottom: 0.7rem;
+            vertical-align: middle;
+        }
+
+        @keyframes floatSoft {
+            0% {
+                transform: translateY(-6px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(-6px);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .dialogue-bubble {
+                padding: 1.6rem 1.4rem;
+                font-size: 0.95rem;
+                border-radius: 24px 24px 24px 6px;
+            }
+
+                .dialogue-bubble::before {
+                    left: 28px;
+                    border-left: 14px solid transparent;
+                    border-right: 14px solid transparent;
+                    border-top: 20px solid #ffd166;
+                    bottom: -18px;
+                }
+
+                .dialogue-bubble::after {
+                    left: 31px;
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    border-top: 16px solid #fdf6e3;
+                    bottom: -14px;
+                }
+
+            .bubble-icon {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* ================================================================
+                   经验分享 – 分类筛选 & 卡片网格 (NEW)
+                   ================================================================ */
+
+        /* ---- 筛选按钮组 ---- */
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem 1rem;
+            margin-bottom: 2.5rem;
+            padding: 0.5rem 0;
+        }
+
+        .filter-btn {
+            display: inline-block;
+            padding: 0.45rem 1.6rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            background: #f5efe6;
+            color: #5a4a3a;
+            border: 2px solid transparent;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+            user-select: none;
+        }
+
+            .filter-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+            }
+
+            .filter-btn.active {
+                border-color: #b1744b;
+                background: #b1744b;
+                color: #fff;
+                box-shadow: 0 6px 16px rgba(177, 116, 75, 0.25);
+            }
+
+                .filter-btn.active:hover {
+                    background: #9a5f3e;
+                    border-color: #9a5f3e;
+                }
+
+        /* ---- 每个标签的颜色 ---- */
+        .tag-health {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .tag-food {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .tag-environment {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .tag-behavior {
+            background: #e8daef;
+            color: #4a235a;
+        }
+
+        .tag-breeding {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .tag-other {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+
+        /* ---- 经验卡片 ---- */
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .exp-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 1.8rem 1.8rem 1.6rem;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(255, 209, 102, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            background: linear-gradient(145deg, #fffcf7, #fff9f0);
+        }
+
+            .exp-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 24px 48px rgba(0, 0, 0, 0.10), 0 8px 20px rgba(0, 0, 0, 0.06);
+                border-color: #ffd166;
+            }
+
+            .exp-card .tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.4rem 0.6rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .exp-card .tag {
+                display: inline-block;
+                padding: 0.15rem 0.9rem;
+                border-radius: 30px;
+                font-size: 0.7rem;
+                font-weight: 700;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                border: 1px solid rgba(0, 0, 0, 0.04);
+            }
+
+            .exp-card .exp-title {
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: #3e2c1c;
+                margin-bottom: 0.4rem;
+                line-height: 1.4;
+            }
+
+                .exp-card .exp-title a {
+                    color: #3e2c1c;
+                    text-decoration: none;
+                    transition: color 0.2s;
+                }
+
+                    .exp-card .exp-title a:hover {
+                        color: #b1744b;
+                    }
+
+            .exp-card .exp-summary {
+                color: #5a4a3a;
+                font-size: 0.95rem;
+                line-height: 1.7;
+                flex: 1;
+                margin-bottom: 1rem;
+            }
+
+            .exp-card .exp-meta {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-top: 1px solid rgba(0, 0, 0, 0.05);
+                padding-top: 0.8rem;
+                margin-top: 0.2rem;
+                font-size: 0.8rem;
+                color: #8a7a6a;
+            }
+
+                .exp-card .exp-meta .date {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.3rem;
+                }
+
+                .exp-card .exp-meta .read-more {
+                    color: #b1744b;
+                    font-weight: 600;
+                    text-decoration: none;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.2rem;
+                    transition: gap 0.2s;
+                }
+
+                    .exp-card .exp-meta .read-more:hover {
+                        gap: 0.5rem;
+                        color: #7b4a2c;
+                    }
+
+        /* ---- 空状态 ---- */
+        .no-results {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #8a7a6a;
+            font-size: 1.1rem;
+            display: none;
+        }
+
+            .no-results.show {
+                display: block;
+            }
+
+            .no-results i {
+                font-size: 2.5rem;
+                display: block;
+                margin-bottom: 0.8rem;
+                color: #d4c5b5;
+            }
+
+        /* ---- 响应式 ---- */
+        @media (max-width: 640px) {
+            .exp-grid {
+                grid-template-columns: 1fr;
+                gap: 1.4rem;
+            }
+
+            .filter-group {
+                gap: 0.4rem 0.6rem;
+            }
+
+            .filter-btn {
+                padding: 0.35rem 1.2rem;
+                font-size: 0.8rem;
+            }
+
+            .exp-card {
+                padding: 1.4rem;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center">
+            <a href="index.html" class="logo d-flex align-items-center me-auto">
+                <h1 class="sitename">牡丹鹦鹉.com</h1>
+            </a>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="#hero" class="active">首页</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#experiences">经验分享</a></li>
+                    <!--<li><a href="#portfolio">图库</a></li>-->
+                    <li><a href="#team">鸟宝们</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+
+        <!-- ===== HERO ===== -->
+        <section id="hero" class="hero section dark-background">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
+                        <h1>牡丹鹦鹉分享站</h1>
+                        <p>我们是牡丹鹦鹉饲养者。分享自家饲养的鸟宝们的状况和点滴。有意饲养者可以联系我们</p>
+                        <div class="d-flex">
+                            <a href="#about" class="btn-get-started">开始</a>
+                            <a href="" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>关于我们的影片</span></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
+                        <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ABOUT ===== -->
+        <section id="about" class="about section">
+            <div class="container section-title" data-aos="fade-up">
+                <h2>关于我们</h2>
+            </div>
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+                        <p>我是一个宠物发烧友。曾经养过孔雀鱼，喜欢看他们色彩斑斓，自由自在的生活。虽然喜欢，但是总是觉得不能与他们互动始终是个遗憾。也曾想过要养小狗，都说嘛狗狗是人类最好的朋友。但是一想到它们短暂的生命，不久后将会和它们道别，终究没勇气迈出那一步。</p>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                        <p>偶然之下让我在B站看到了牡丹鹦鹉的视频。这毛毛、矮矮胖胖像一粒球的东西怎么那么可爱。它们很坏蛋，真的很坏蛋。但是那可爱的样子让你不舍得舍弃它，打骂它。看到它们那傻憨憨且坏蛋的样子，真的是爱不释手。刚接触它们的时候，也犯过一些错，也伤心过。累计了一些经验以后，鸟宝们都活得健健康康。这创立这网站的初衷是来分享鸟宝们的点滴。但是经过几轮的繁殖以后，鸟口众多了，渐渐不堪负荷。所以有兴趣购买的朋友可以联系我。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================================== -->
+        <!-- 经验分享 SECTION – 含 对话气泡 + 分类筛选 + 卡片网格            -->
+        <!-- =============================================================== -->
+        <section id="experiences" class="services section light-background">
+
+            <div class="container section-title" data-aos="fade-up">
+                <h2>经验分享</h2>
+                <p style="max-width:600px;margin:0 auto;color:#6a5a4a;">饲养牡丹鹦鹉的点滴心得 · 点击标签筛选你想了解的主题</p>
+            </div>
+
+            <div class="container">
+                <!-- 对话气泡 – 固定公告栏 (卷首语) -->
+                <div class="bubble-wrapper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="dialogue-bubble">
+                        <div>
+                            <!-- 将之前的"你知道吗"改为"公告栏"，图标换成小喇叭 -->
+                            <span class="bubble-label"><i class="bi bi-megaphone" style="margin-right:6px;"></i> 公告栏</span>
+                            <span class="bubble-icon" role="img" aria-label="parrot">🦜</span>
+                        </div>
+                        <p style="margin-bottom:0.8rem; font-weight: 500; line-height: 1.8;">
+                            欢迎来到我们的经验分享小站 📢<br>
+                            在这里，我们用心记录饲养牡丹鹦鹉的实用知识与日常点滴。内容涵盖鸟宝们的<strong>健康护理</strong>、<strong>营养食谱</strong>搭配、<strong>笼舍环境</strong>布置，以及<strong>行为观察</strong>与<strong>繁殖经验</strong>。
+                            每一则分享都来自真实的饲养实践，希望能为爱鸟的您提供参考与帮助。愿我们一同学习，让每一只小鸟都健康快乐地成长！
+                        </p>
+                        <!-- 底部装饰脚注，呼应“用心分享” -->
+                        <div style="margin-top:0.5rem; font-size:0.75rem; color:#b1744b; opacity:0.8; display:flex; align-items:center; gap:0.4rem;">
+                            <i class="bi bi-heart-fill" style="font-size:0.9rem; color:#e06060;"></i>
+                            <span>— 用心分享 · 与爱鸟同行</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== 筛选按钮 ===== -->
+                <div class="filter-group" data-aos="fade-up" data-aos-delay="150">
+                    <button class="filter-btn active" data-filter="all">🏷️ 全部</button>
+                    <button class="filter-btn" data-filter="health">❤️ 健康</button>
+                    <button class="filter-btn" data-filter="food">🍎 食物</button>
+                    <button class="filter-btn" data-filter="environment">🌿 环境</button>
+                    <button class="filter-btn" data-filter="behavior">🐾 行为</button>
+                    <button class="filter-btn" data-filter="breeding">🥚 繁殖</button>
+                </div>
+
+                <!-- ===== 卡片网格 ===== -->
+                <div class="exp-grid" data-aos="fade-up" data-aos-delay="200">
+
+                    <!-- 卡片 1 – 健康 + 环境 -->
+                    <div class="exp-card" data-tags="health environment" data-id="1">
+                        <div class="tags">
+                            <span class="tag tag-health">❤️ 健康</span>
+                            <span class="tag tag-environment">🌿 环境</span>
+                        </div>
+                        <div class="exp-title">如何保持鸟舍通风与干燥</div>
+                        <div class="exp-summary">潮湿环境容易滋生霉菌，引发呼吸道疾病。我每天开窗通风2小时，并在笼底铺上吸湿性好的木屑，每周更换一次。</div>
+                        <div class="exp-meta">
+                            <span class="date"><i class="bi bi-calendar3"></i> 2025-12-10</span>
+                            <a href="article.html?id=1" class="read-more">阅读更多 <i class="bi bi-chevron-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- 卡片 2 – 食物 -->
+                    <div class="exp-card" data-tags="food" data-id="2">
+                        <div class="tags">
+                            <span class="tag tag-food">🍎 食物</span>
+                        </div>
+                        <div class="exp-title">自配混合谷物粮心得</div>
+                        <div class="exp-summary">小米、加纳利子、燕麦、葵花籽按 4:3:2:1 比例混合，再补充少量墨鱼骨粉，鸟宝们羽毛更亮泽，精力充沛。</div>
+                        <div class="exp-meta">
+                            <span class="date"><i class="bi bi-calendar3"></i> 2025-12-05</span>
+                            <a href="article.html?id=2" class="read-more">阅读更多 <i class="bi bi-chevron-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- 卡片 3 – 行为 + 健康 -->
+                    <div class="exp-card" data-tags="behavior health" data-id="3">
+                        <div class="tags">
+                            <span class="tag tag-behavior">🐾 行为</span>
+                            <span class="tag tag-health">❤️ 健康</span>
+                        </div>
+                        <div class="exp-title">鸟儿洗澡的学问</div>
+                        <div class="exp-summary">每周提供2-3次浅水盘，水温25-30℃最佳。洗澡能帮助清理羽毛、去除皮屑，还能缓解换羽期的不适。</div>
+                        <div class="exp-meta">
+                            <span class="date"><i class="bi bi-calendar3"></i> 2025-11-28</span>
+                            <a href="article.html?id=3" class="read-more">阅读更多 <i class="bi bi-chevron-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- 卡片 4 – 环境 -->
+                    <div class="exp-card" data-tags="environment" data-id="4">
+                        <div class="tags">
+                            <span class="tag tag-environment">🌿 环境</span>
+                        </div>
+                        <div class="exp-title">笼子摆放位置有讲究</div>
+                        <div class="exp-summary">避免直射阳光和穿堂风，靠墙放置能让鸟儿有安全感。我放在客厅角落，既能看到家人活动，又不会过于嘈杂。</div>
+                        <div class="exp-meta">
+                            <span class="date"><i class="bi bi-calendar3"></i> 2025-11-20</span>
+                            <a href="article.html?id=4" class="read-more">阅读更多 <i class="bi bi-chevron-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- 卡片 5 – 繁殖 + 健康 -->
+                    <div class="exp-card" data-tags="breeding health" data-id="5">
+                        <div class="tags">
+                            <span class="tag tag-breeding">🥚 繁殖</span>
+                            <span class="tag tag-health">❤️ 健康</span>
+                        </div>
+                        <div class="exp-title">繁殖期营养补充要点</div>
+                        <div class="exp-summary">产蛋前后增加蛋白质和钙质，我添加了煮熟的蛋黄、墨鱼骨和专用繁殖粉。雏鸟出壳后要确保亲鸟有充足的食物。</div>
+                        <div class="exp-meta">
+                            <span class="date"><i class="bi bi-calendar3"></i> 2025-11-15</span>
+                            <a href="article.html?id=5" class="read-more">阅读更多 <i class="bi bi-chevron-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- 卡片 6 – 行为 + 食物 -->
+                    <div class="exp-card" data-tags="behavior food" data-id="6">
+                        <div class="tags">
+                            <span class="tag tag-behavior">🐾 行为</span>
+                            <span class="tag tag-food">🍎 食物</span>
+                        </div>
+                        <div class="exp-title">挑食小鸟的驯养技巧</div>
+                        <div class="exp-summary">我家Kiwi曾经只吃葵花籽，后来我用「渐减法」混入小米，每天减少5%葵花籽，两周后完全接受混合粮。</div>
+                        <div class="exp-meta">
+                            <span class="date"><i class="bi bi-calendar3"></i> 2025-11-08</span>
+                            <a href="article.html?id=6" class="read-more">阅读更多 <i class="bi bi-chevron-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- 卡片 7 – 健康 -->
+                    <div class="exp-card" data-tags="health" data-id="7">
+                        <div class="tags">
+                            <span class="tag tag-health">❤️ 健康</span>
+                        </div>
+                        <div class="exp-title">常见小病：拉稀的处理</div>
+                        <div class="exp-summary">发现鸟宝拉稀先观察精神状态，若活泼则可能是饮食问题。停掉蔬果，喂食干小米，水中加入少量益生菌，一般2天可恢复。</div>
+                        <div class="exp-meta">
+                            <span class="date"><i class="bi bi-calendar3"></i> 2025-11-01</span>
+                            <a href="article.html?id=7" class="read-more">阅读更多 <i class="bi bi-chevron-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- 卡片 8 – 环境 + 行为 -->
+                    <div class="exp-card" data-tags="environment behavior" data-id="8">
+                        <div class="tags">
+                            <span class="tag tag-environment">🌿 环境</span>
+                            <span class="tag tag-behavior">🐾 行为</span>
+                        </div>
+                        <div class="exp-title">玩具摆放与互动频率</div>
+                        <div class="exp-summary">笼内放3-4种不同质地的玩具（木头、绳索、铃铛），每周轮换位置。每天至少20分钟互动，鸟儿会更亲人、更活跃。</div>
+                        <div class="exp-meta">
+                            <span class="date"><i class="bi bi-calendar3"></i> 2025-10-25</span>
+                            <a href="article.html?id=8" class="read-more">阅读更多 <i class="bi bi-chevron-right"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 空状态 -->
+                <div class="no-results" id="noResults">
+                    <i class="bi bi-inbox"></i>
+                    暂无该分类的经验分享，试试其他标签吧 🐦
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== 其余原有 sections (精简) ===== -->
+        <!--<section id="portfolio" class="portfolio section">
+            <div class="container section-title" data-aos="fade-up"><h2>图库</h2></div>
+            <div class="container">
+                <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+                    <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                        <li data-filter="*" class="filter-active">All</li>
+                        <li data-filter=".filter-app">App</li>
+                        <li data-filter=".filter-product">Card</li>
+                        <li data-filter=".filter-branding">Web</li>
+                    </ul>
+                    <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                            <img src="assets/img/portfolio/portfolio-portrait-1.webp" class="img-fluid" alt="">
+                            <div class="portfolio-info"><h4>App 1</h4><p>Lorem ipsum, dolor sit</p><a href="assets/img/portfolio/portfolio-portrait-1.webp" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a><a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a></div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                            <img src="assets/img/portfolio/portfolio-1.webp" class="img-fluid" alt="">
+                            <div class="portfolio-info"><h4>Product 1</h4><p>Lorem ipsum, dolor sit</p><a href="assets/img/portfolio/portfolio-1.webp" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a><a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a></div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+                            <img src="assets/img/portfolio/portfolio-3.webp" class="img-fluid" alt="">
+                            <div class="portfolio-info"><h4>Branding 1</h4><p>Lorem ipsum, dolor sit</p><a href="assets/img/portfolio/portfolio-3.webp" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a><a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>-->
+
+        <section id="team" class="team section">
+            <div class="container section-title" data-aos="fade-up"><h2>鸟宝们</h2></div>
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-6 bird-card" data-aos="fade-up" data-aos-delay="50" data-dob="2025-11-06">
+                        <div class="team-member d-flex align-items-start">
+                            <div class="pic"><img src="assets/img/birds/lb-yellow.jpg" class="img-fluid" alt="Tweety"></div>
+                            <div class="member-info">
+                                <h4>Tweety</h4>
+                                <div class="bird-title">乖巧鸟</div>
+                                <ul class="bird-stats">
+                                    <li><strong>性格：</strong>脾气最好，性格温驯。乖，从来不咬主人。</li>
+                                    <li><strong>生日：</strong>06.11.2025</li>
+                                    <li><strong>年龄：</strong><span class="bird-age">calculating…</span></li>
+                                    <li><strong>性别：</strong>公</li>
+                                    <li><strong>爱好：</strong>洗澡。同伴做什么我就做什么</li>
+                                    <li><strong>食物：</strong>小米，谷粮</li>
+                                    <li><strong>粘人指数：</strong><span class="bird-stars" data-rating="4.2"></span></li>
+                                </ul>
+                                <div class="social">
+                                    <a href="https://youtu.be/VIDEO_ID_1" target="_blank" title="Play video 1"><i class="bi bi-play-circle"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 bird-card" data-aos="fade-up" data-aos-delay="50" data-dob="2025-11-05">
+                        <div class="team-member d-flex align-items-start">
+                            <div class="pic"><img src="assets/img/birds/lb-yellow.jpg" class="img-fluid" alt="Kiwi"></div>
+                            <div class="member-info">
+                                <h4>Kiwi</h4>
+                                <div class="bird-title">憨厚鸟</div>
+                                <ul class="bird-stats">
+                                    <li><strong>性格：</strong>性格温驯。不咬主人。</li>
+                                    <li><strong>生日：</strong>05.11.2025</li>
+                                    <li><strong>年龄：</strong><span class="bird-age">calculating…</span></li>
+                                    <li><strong>性别：</strong>公</li>
+                                    <li><strong>爱好：</strong>在主人手掌心上发呆。喜欢咬主人的指甲</li>
+                                    <li><strong>喜爱的食物：</strong>小米，谷粮</li>
+                                    <li><strong>粘人指数：</strong><span class="bird-stars" data-rating="4.1"></span></li>
+                                </ul>
+                                <div class="social">
+                                    <a href="https://youtu.be/VIDEO_ID_1" target="_blank" title="Play video 1"><i class="bi bi-play-circle"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 bird-card" data-aos="fade-up" data-aos-delay="50" data-dob="2025-12-27">
+                        <div class="team-member d-flex align-items-start">
+                            <div class="pic"><img src="assets/img/birds/lb-yellow.jpg" class="img-fluid" alt="Blueberry"></div>
+                            <div class="member-info">
+                                <h4>Bluey (小蓝梅)</h4>
+                                <div class="bird-title">抢鞋鸟</div>
+                                <ul class="bird-stats">
+                                    <li><strong>性格：</strong>好奇心强，什么都要咬一口</li>
+                                    <li><strong>生日：</strong>27.12.2025</li>
+                                    <li><strong>年龄：</strong><span class="bird-age">calculating…</span></li>
+                                    <li><strong>性别：</strong>母</li>
+                                    <li><strong>爱好：</strong>抢主人的鞋。什么都要大力咬一口试试看</li>
+                                    <li><strong>喜爱的食物：</strong>小米，谷粮</li>
+                                    <li><strong>粘人指数：</strong><span class="bird-stars" data-rating="4.0"></span></li>
+                                </ul>
+                                <div class="social">
+                                    <a href="https://youtu.be/VIDEO_ID_1" target="_blank" title="Play video 1"><i class="bi bi-play-circle"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact section">
+            <div class="container section-title" data-aos="fade-up"><h2>联系我们</h2></div>
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row gy-4">
+                    <div class="col-lg-5">
+                        <div class="info-wrap">
+                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                                <div><h3>地址</h3><p>No 20, Jalan Harmonium 23/7, Taman Desa Tebrau, 81100 JB, Johor</p></div>
+                            </div>
+                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                                <i class="bi bi-telephone flex-shrink-0"></i>
+                                <div><h3>手机号</h3><p>+60 12 7928602</p></div>
+                            </div>
+                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                                <i class="bi bi-envelope flex-shrink-0"></i>
+                                <div><h3>邮件信箱</h3><p>linyse2001@gmail.com</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                            <div class="row gy-4">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.3458504946657!2d103.79498497310017!3d1.5566738608800454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da6e9f4ed6edcb%3A0x1bb07b83e14dd24c!2sJalan%20Harmonium%2023%2F7%2C%20Taman%20Desa%20Tebrau%2C%2081100%20Johor%20Bahru%2C%20Johor%20Darul%20Ta&#39;zim%2C%20Malaysia!5e0!3m2!1sen!2ssg!4v1781851164829!5m2!1sen!2ssg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer id="footer" class="footer">
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <a href="index.html" class="d-flex align-items-center"><span class="sitename">牡丹鹦鹉.com</span></a>
+                    <div class="footer-contact pt-3">
+                        <p>No 20, Jalan Harmonium 23/7,</p>
+                        <p>Taman Desa Tebrau, 81100 JB, Johor</p>
+                        <p class="mt-3"><strong>Phone:</strong> <span>+60 12 7928602</span></p>
+                        <p><strong>Email:</strong> <span>linyse2001@gmail.com</span></p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>网站链接</h4>
+                    <ul>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#hero">首页</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#about">关于我们</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#experiences">经验分享</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#portfolio">图库</a></li>
+                    </ul>
+                </div>                
+                <div class="col-lg-4 col-md-12">
+                    <h4>关注我们</h4>
+                    <p>您可以在以下的社交网站关注我们</p>
+                    <div class="social-links d-flex">
+                        <a href=""><i class="bi bi-twitter-x"></i></a>
+                        <a href=""><i class="bi bi-facebook"></i></a>
+                        <a href=""><i class="bi bi-instagram"></i></a>
+                        <a href=""><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright text-center mt-4">
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">Ken­­©</strong> <span>All Rights Reserved</span></p>
+        </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
+
+    <!-- Vendor JS -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        // ===== 年龄计算 =====
+        function calculateAge(birthDate, now) {
+            let years = now.getFullYear() - birthDate.getFullYear();
+            let months = now.getMonth() - birthDate.getMonth();
+            let days = now.getDate() - birthDate.getDate();
+            if (days < 0) { months--;
+                let lastMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+                days += lastMonth; }
+            if (months < 0) { years--;
+                months += 12; }
+            return { years, months, days };
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const now = new Date();
+            document.querySelectorAll('[data-dob]').forEach(card => {
+                const dobStr = card.getAttribute('data-dob');
+                if (!dobStr) return;
+                const birthDate = new Date(dobStr + 'T00:00:00');
+                if (isNaN(birthDate.getTime())) return;
+                const { years, months, days } = calculateAge(birthDate, now);
+                const ageSpan = card.querySelector('.bird-age');
+                if (!ageSpan) return;
+                let parts = [];
+                if (years > 0) parts.push(`${years} year${years !== 1 ? 's' : ''}`);
+                if (months > 0) parts.push(`${months} month${months !== 1 ? 's' : ''}`);
+                if (days > 0) parts.push(`${days} day${days !== 1 ? 's' : ''}`);
+                let ageText = parts.join(', ') || 'today';
+                ageSpan.textContent = ageText;
+            });
+
+            // SVG stars
+            document.querySelectorAll('.bird-stars').forEach(el => {
+                const ratingAttr = el.getAttribute('data-rating');
+                if (!ratingAttr) return;
+                const rating = parseFloat(ratingAttr);
+                if (isNaN(rating) || rating < 0 || rating > 5) return;
+                const starPath = "M 0,-10 L 2.5,-3.5 L 9.5,-3.5 L 4,1.5 L 6,8.5 L 0,4.5 L -6,8.5 L -4,1.5 L -9.5,-3.5 L -2.5,-3.5 Z";
+                let svg =
+                    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -12 104 24" width="104" height="24">`;
+                for (let i = 0; i < 5; i++) {
+                    const starValue = i + 1;
+                    let fillColor;
+                    if (rating >= starValue) {
+                        fillColor = '#ffc107';
+                    } else if (rating > i && rating < starValue) {
+                        const partialFill = (rating - i) * 100;
+                        const gradientId = `star-grad-${i}-${Date.now()}-${Math.random()}`;
+                        svg += `<defs><linearGradient id="${gradientId}" x1="0" y1="0" x2="1" y2="0"><stop offset="${partialFill}%" stop-color="#ffc107" /><stop offset="${partialFill}%" stop-color="#e0e0e0" /></linearGradient></defs>`;
+                        fillColor = `url(#${gradientId})`;
+                    } else {
+                        fillColor = '#e0e0e0';
+                    }
+                    const x = i * 20;
+                    svg +=
+                        `<path d="${starPath}" transform="translate(${x + 10}, 0)" fill="${fillColor}" stroke="none"/>`;
+                }
+                svg += `</svg>`;
+                const ratingDisplay = rating.toFixed(1);
+                el.innerHTML =
+                    `${svg}<span class="rating-tooltip">${ratingDisplay} / 5.0</span>`;
+            });
+
+            // ===== 经验分享 – 筛选功能 =====
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const cards = document.querySelectorAll('.exp-card');
+            const noResults = document.getElementById('noResults');
+
+            function filterCards(filter) {
+                let visibleCount = 0;
+                cards.forEach(card => {
+                    const tags = card.getAttribute('data-tags') || '';
+                    const tagArray = tags.split(' ');
+                    const matches = filter === 'all' || tagArray.includes(filter);
+                    if (matches) {
+                        card.style.display = 'flex';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                // 空状态
+                if (visibleCount === 0) {
+                    noResults.classList.add('show');
+                } else {
+                    noResults.classList.remove('show');
+                }
+            }
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // 切换 active 状态
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const filter = this.getAttribute('data-filter');
+                    filterCards(filter);
+                });
+            });
+
+            // 初始显示全部
+            filterCards('all');            
+        });
+
+(function () {
+    const SCROLL_KEY = 'lovebird_scroll_pos';
+
+    // 1. 点击“阅读更多”时保存滚动位置（保持不变）
+    document.querySelectorAll('.exp-card .read-more').forEach(link => {
+        link.addEventListener('click', function () {
+            sessionStorage.setItem(SCROLL_KEY, window.scrollY);
+        });
+    });
+
+    // 2. 页面加载后恢复滚动位置（改进版）
+    window.addEventListener('load', function () {
+        const saved = sessionStorage.getItem(SCROLL_KEY);
+        if (saved !== null) {
+            const pos = parseInt(saved, 10);
+            if (!isNaN(pos) && pos > 0) {
+                // 👇 关键：如果有锚点（#experiences），先移除它，避免浏览器跳转
+                if (window.location.hash) {
+                    history.replaceState(null, '', window.location.pathname + window.location.search);
+                }
+                // 👇 延迟执行，确保覆盖浏览器的默认锚点滚动
+                setTimeout(function () {
+                    window.scrollTo({ top: pos, behavior: 'auto' });
+                }, 50);
+            }
+            // 清除记录，避免刷新时重复
+            sessionStorage.removeItem(SCROLL_KEY);
+        }
+    });
+})();
+
+    </script>
+
+</body>
+
+</html>
