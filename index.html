@@ -1102,37 +1102,36 @@
             filterCards('all');            
         });
 
-(function () {
-    const SCROLL_KEY = 'lovebird_scroll_pos';
+        (function () {
+            const SCROLL_KEY = 'lovebird_scroll_pos';
 
-    // 1. 点击“阅读更多”时保存滚动位置（保持不变）
-    document.querySelectorAll('.exp-card .read-more').forEach(link => {
-        link.addEventListener('click', function () {
-            sessionStorage.setItem(SCROLL_KEY, window.scrollY);
-        });
-    });
+            // 1. Save scroll position when clicking "阅读更多"
+            document.querySelectorAll('.exp-card .read-more').forEach(link => {
+                link.addEventListener('click', function () {
+                    sessionStorage.setItem(SCROLL_KEY, window.scrollY);
+                });
+            });
 
-    // 2. 页面加载后恢复滚动位置（改进版）
-    window.addEventListener('load', function () {
-        const saved = sessionStorage.getItem(SCROLL_KEY);
-        if (saved !== null) {
-            const pos = parseInt(saved, 10);
-            if (!isNaN(pos) && pos > 0) {
-                // 👇 关键：如果有锚点（#experiences），先移除它，避免浏览器跳转
+            // 2. Restore scroll position — BUT only when there is no hash in the URL
+            window.addEventListener('load', function () {
+                // 👇 If the URL has a #section, let the browser handle it. Do nothing.
                 if (window.location.hash) {
-                    history.replaceState(null, '', window.location.pathname + window.location.search);
+                    sessionStorage.removeItem(SCROLL_KEY);
+                    return;
                 }
-                // 👇 延迟执行，确保覆盖浏览器的默认锚点滚动
-                setTimeout(function () {
-                    window.scrollTo({ top: pos, behavior: 'auto' });
-                }, 50);
-            }
-            // 清除记录，避免刷新时重复
-            sessionStorage.removeItem(SCROLL_KEY);
-        }
-    });
-})();
 
+                const saved = sessionStorage.getItem(SCROLL_KEY);
+                if (saved !== null) {
+                    const pos = parseInt(saved, 10);
+                    if (!isNaN(pos) && pos > 0) {
+                        setTimeout(function () {
+                            window.scrollTo({ top: pos, behavior: 'auto' });
+                        }, 50);
+                    }
+                    sessionStorage.removeItem(SCROLL_KEY);
+                }
+            });
+        })();
     </script>
 
 </body>
