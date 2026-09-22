@@ -187,6 +187,47 @@ h6 {
   background: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
 
+/* ===== Mobile alignment fix for 鸟宝们 ===== */
+@media (max-width: 768px) {
+
+    /* Stack avatar above text instead of side-by-side */
+    .bird-card .team-member {
+        flex-direction: column;
+        align-items: flex-start; /* keep everything hugging the left edge */
+    }
+
+    /* Kill the template's centering */
+    .bird-card .member-info {
+        text-align: left !important;
+        width: 100%;
+    }
+
+        /* Ensure the list is flush-left */
+        .bird-card .member-info ul.bird-stats {
+            text-align: left !important;
+            padding-left: 0;
+            margin-left: 0;
+        }
+
+            .bird-card .member-info ul.bird-stats li {
+                text-align: left;
+            }
+
+    /* Avatar: center it horizontally above the text, remove right gap */
+    .bird-card .pic,
+    .team .team-member .pic {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        align-self: center;
+    }
+
+    /* Optional: make the title row consistent */
+    .bird-card .member-info h4,
+    .bird-card .bird-title {
+        text-align: left;
+    }
+}
+
 @media (max-width: 1200px) {
   .header .logo {
     order: 1;
